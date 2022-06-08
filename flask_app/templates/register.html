@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+    <form action="/register" method="post">
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="password-1" placeholder="Password">
+        <input type="password" name="password-2" placeholder="Repeat password">
+        <input type="submit" value="Submit">
+    </form>
+    <a href="/register">Register</a>
+    {% for error_message in error_messages %}
+    <p style="color: red;">{{ error_message }}</p>
+    {% endfor %}
+</body>
+</html>

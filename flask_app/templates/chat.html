@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="https://cdn.socket.io/4.5.0/socket.io.min.js" integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k" crossorigin="anonymous"></script> -->
+    <script src="../static/socket.io.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script> -->
+    <script src="../static/jquery.min.js"></script>
+    <title>Chat-App-3.3</title>
+</head>
+<body>
+    <h1>{{ to }}</h1>
+    <ul class="users">
+        {% for user in users %}
+        <li><a href="/@/{{ user.username }}">{{ user.username }} {{ user.online }}</a></li>
+        {% endfor %}
+    </ul>
+    <hr>
+    <ul class="chat">
+        {% for message in messages %}
+        <li><b>{{ message.from_ }}: </b>{{ message.text }} <i>{{ message.date | format_date }}</i></li>
+        {% endfor %}
+    </ul>
+    <form>
+        <input type="text" id="text" placeholder="Message">
+        <input type="submit" value="Send">
+    </form>
+    <a href="/logout">Logout</a>
+    <script>
+        const to = '{{ to }}'
+    </script>
+    <script src="../static/chat.js"></script>
+</body>
+</html>
