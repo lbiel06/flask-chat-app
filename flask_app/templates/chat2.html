@@ -1,0 +1,101 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foundation for Sites</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <link rel="stylesheet" href="../static/foundation.css">
+  <link rel="stylesheet" href="../static/app.css">
+  <link rel="stylesheet" href="../static/layout.css">
+  <script src="../static/jquery.min.js"></script>
+  <script src="../static/socket.io.min.js"></script>
+</head>
+
+<body>
+
+
+    <div class="top-bar" style="height: 55px !important;">
+      <div class="top-bar-left">
+        <ul class="dropdown menu" data-dropdown-menu>
+          <button type="button" class="button hide-for-large menu-text menu-button" data-toggle="offCanvasLeftSplit1">☰</button>
+          <li class="menu-text show-for-large"><b>Chat-App-3 v4</b></li>
+          <li class="menu-text">{{ to }}</li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="off-canvas-wrapper" style="height: calc(100vh - 55px);margin:0;">
+      <div class="off-canvas-absolute position-left reveal-for-large" id="offCanvasLeftSplit1" data-off-canvas>
+        <!-- Your menu or Off-canvas content goes here -->
+        {% for user in users %}
+        <a href="/@/{{ user.username }}">
+          <p>{{user.username}}
+          {% if user.online %}
+          <span style="color:green;">Online</span>
+          {% endif %}
+          </p>
+        </a>
+        {% endfor %}
+      </div>
+      <div class="off-canvas-content" data-off-canvas>
+        <div class="chat">
+          {% for message in messages %}
+          <p style="margin:0 !important;"><span style="color:#9EBC97 ;">{{ message.from_ }}:</span><span> {{ message.text }} </span><span style="color:gray;">{{ message.date | format_date}}</span></p>
+          {% endfor %}
+        </div>
+        <form>
+        <div class="input-group" style="height:40px;">
+          <input class="input-group-field" type="text" id="message-text">
+          <div class="input-group-button">
+            <input type="submit" class="button" value="Send" autofocus>
+          </div>
+        </div>
+        </form>
+        <style>
+          body{
+            font-family: sans-serif;
+          }
+          @media screen and (min-width: 64em) {
+            .input-group {
+              width: calc(100vw - 250px);
+            }
+          }
+
+          .chat{
+            height: calc(100vh - 95px);
+            overflow-y: scroll;
+            overflow-wrap: break-word;
+            padding: 1em;
+          }
+          .off-canvas-absolute p{
+            padding: 1em;
+            overflow-wrap: break-word;
+            color: #fff;
+            margin: 0;
+          }
+          .off-canvas-absolute p:hover{
+            background-color: #404040;
+          }
+
+          .off-canvas-absolute a{
+            color: #fff !important;
+          }
+        </style>
+      </div>
+    </div>
+  </body>
+  <script>
+    const to = '{{ to }}'
+  </script>
+  <script src="../static/chat.js"></script>
+  <script src="../static/vendor/jquery.js"></script>
+  <script src="../static/vendor/what-input.js"></script>
+  <script src="../static/vendor/foundation.js"></script>
+  <script src="../static/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+.off-canvas-content,
+.off-canvas-absolute {
+    background-color: #202020;
+    color: #fff;
+    box-shadow: none;
+}
+
+.top-bar,
+.top-bar *,
+.button {
+    background-color: royalblue !important;
+    color: #fff !important;
+}
+
+.off-canvas-absolute {
+    background-color: #303030 !important;
+}
+
+.top-bar {
+    border-bottom: 1px solid #303030 !important;
+    /* box-shadow: 20px 20px 20px 20px rgba(255,255,255,.5) !important; */
+}
+
+.input-group {
+    border-top: 1px solid #303030 !important;
+
+}
+
+.input-group-field {
+    background-color: #202020 !important;
+    border: 1px solid #303030 !important;
+
+}
+
+.input-group-field:focus,
+.input-group-field {
+    box-shadow: none !important;
+    color: #fff;
+}
+
+.input-group-field:focus {
+    background-color: #252525 !important;
+}
+
+.dropdown-menu * {
+    display: inline-block !important;
+    font-size: 30px !important;
+}
+
+.menu-button {
+    background-color: #202020 !important;
+}
+
+.button {
+    border: 1px solid #303030 !important;
+}
+
+.off-canvas-absolute p:hover {
+    background-color: #404040;
+}
+
+.off-canvas-absolute a {
+    color: #fff !important;
+}
+
+.menu-text{
+    font-weight: normal !important;
+}

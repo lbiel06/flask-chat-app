@@ -4,18 +4,21 @@ socket.on('message', (data) => {
     console.log(data, to)
     if (data['from'] == to || data['to'] == to) {
         $('.chat').append(`
-        <li><b>${data['from']}: </b>${data['text']}   <i>${data['date']}</i></li><tr>
+        <p style="margin:0 !important;"><span style="color:#9EBC97 ;">${data['from']}:</span> ${data['text']}<span style="color:gray;"> ${data['date']}</span></p>
         `)
+        $('.chat').scrollTop($('.chat').height());
+
     }
 })
 
 $('form').on('submit', (event) => {
     event.preventDefault()
+    console.log('submit')
     // var to = to
-    var text = $('#text').val()
+    var text = $('#message-text').val()
     socket.emit('message', {
         'to': to,
         'text': text
     })
-    $('#text').val('')
+    $('#message-text').val('')
 })

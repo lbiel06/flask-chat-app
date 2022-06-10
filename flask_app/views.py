@@ -15,7 +15,7 @@ from . import models
 # Form validation settings
 USERNAME_ALLOWED_CHARACTERS = string.ascii_letters + string.digits + '_'
 USERNAME_MIN_LENGHT = 3
-USERNAME_MAX_LENGHT = 20
+USERNAME_MAX_LENGHT = 15
 PASSWORD_MIN_LENGHT = 3
 PASSWORD_MAX_LENGTH = 20
 MESSAGE_MAX_LENGHT = 100
@@ -155,7 +155,7 @@ def chat(username):
                 )
             ).order_by(models.Message.date.asc()).all()
             print('messages:', messages)
-            return render_template('chat.html', to=username, messages=messages, users=users)
+            return render_template('chat2.html', to=username, messages=messages, users=users)
 
     return redirect(url_for('home'))
 
