@@ -1,5 +1,4 @@
 # Flask + SocketIO Chat-App v3.3
-# @leonardbielka
 
 
 import datetime
